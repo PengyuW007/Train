@@ -65,7 +65,7 @@ public class Train{
 	}
 	
 	//add the train orderly, cannot work, console didn't give me any response
-	public void addOrdered(int value) {
+	/*public void addOrdered(int value) {
 		Node prev = null;
 		Node curr = head;
 		
@@ -87,7 +87,7 @@ public class Train{
 		}
 		numTrains++;
 	}
-	
+	*/
 	//add the car by index, dont know how to write, this is pretty similar as 2150's a1
 	public boolean findIndexAdd(int index, int value) {
 	
@@ -96,10 +96,12 @@ public class Train{
 		if(index == 0 ) {
 			addHead(value);
 			added = true;
+			numTrains++;
 		}
 		else if(index==numTrains){
 			addTail(value);
 			added = true;
+			numTrains++;
 		}
 		else {
 			Node curr = head;
@@ -117,6 +119,7 @@ public class Train{
 				Node prev = curr.getPrev();
 				prev.setNext(curr.getNext());
 				added = true;
+				numTrains++;
 			}
 			
 		}
@@ -155,6 +158,7 @@ public class Train{
 		}
 		else if(index==0 ) {
 			head = head.getNext(); 
+			numTrains--;
 		}
 		
 		else if(index==this.numTrains){
@@ -162,6 +166,7 @@ public class Train{
 			Node prev= tail.getPrev();
 			prev.setNext(null);
 			tail = prev;
+			numTrains--;
 		}
 		
 		else {
@@ -174,6 +179,8 @@ public class Train{
 			if(curr!= null && currInx== index) {
 				Node prev = curr.getPrev();
 				prev.setNext(curr.getNext());
+				numTrains--;
+				
 			}
 		}
 	}
